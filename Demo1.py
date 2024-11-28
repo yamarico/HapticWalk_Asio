@@ -22,9 +22,9 @@ myarray = amplitude * np.sin(2 * np.pi * frequency * t).astype('float32')
 right_channel_data = np.column_stack((np.zeros_like(myarray), myarray))
 left_channel_data = np.column_stack((myarray, np.zeros_like(myarray)))
 
-device_index_foot = 7 # 適切なデバイスインデックスを設定
-device_index_a =  20 # 適切なデバイスインデックスを設定
-device_index_b = 20  # 適切なデバイスインデックスを設定
+device_index_foot = 11 # 適切なデバイスインデックスを設定
+device_index_a =  10 # 適切なデバイスインデックスを設定
+device_index_b = 13  # 適切なデバイスインデックスを設定
 
 # Define the sound functions
 def play_footstep():
@@ -67,9 +67,9 @@ def play_sequence(lag1, lag2, stop_event):
     with ThreadPoolExecutor() as executor:
         while not stop_event.is_set():  # Unityから「stop」が来るまでループ
             executor.submit(play_footstep)
-            executor.submit(play_sound_a_left)
-            time.sleep(lag1)
             executor.submit(play_sound_a_right)
+            time.sleep(lag1)
+            executor.submit(play_sound_a_left)
             time.sleep(lag2)
 
             executor.submit(play_footstep)

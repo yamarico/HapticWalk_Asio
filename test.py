@@ -25,7 +25,7 @@ left_channel_data = np.column_stack((myarray, np.zeros_like(myarray)))  # 右チ
 print(sd.query_devices())
 
 device_index_foot = 3 # 適切なデバイスインデックスを設定
-device_index_a =  7 # 適切なデバイスインデックスを設定
+device_index_a =  13 # 適切なデバイスインデックスを設定
 device_index_b = 10  # 適切なデバイスインデックスを設定
 
 # 音を出す関数
